@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="code-box">
+      <p class="comment">
+        // This line targets the circle in the website by its id
+        (circle-container)
+      </p>
+
+      <p class="code">
+        <span class="darkblue">const</span>
+        <span class="blue">circleContainer</span>
+        <span class="white">=</span>
+        <span class="lightblue">document</span>
+        <span class="white">.</span>
+        <span class="lightyellow">querySelector</span>
+        <span class="yellow">(</span>
+        <span class="orange">"#circle-container"</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // The styles change lines of code will trigger everytime the mouse
+        enters the circle
+      </p>
+
+      <p class="code">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="yellow">(</span>
+        <span class="orange">"mouseenter"</span>
+        <span class="white">,</span>
+        <span class="purple">( )</span>
+        <span class="blue">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">width</span>
+        <span class="white">=</span>
+        <span class="orange">
+          "<input id="width-input" class="style-input orange" type="text" value="200px"/>"
+        </span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">height</span>
+        <span class="white">=</span>
+        <span class="orange">
+          "<input id="height-input" class="style-input orange" type="text" value="200px"/>"
+        </span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">backgroundColor</span>
+        <span class="white">=</span>
+        <span class="orange">
+          "<input id="background-color-input" class="style-input orange" type="text" value="purple"/>"
+        </span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>å
+        <span class="blue">color</span>
+        <span class="white">=</span>
+        <span class="orange">
+          "<input id="color-input" class="style-input orange" type="text" value="red"/>"
+        </span>
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // The style changes will revert to the original when the mouse leaves the circle
+      </p>
+
+      <p class="code">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="yellow">(</span>
+        <span class="orange">"mouseleave"</span>
+        <span class="white">,</span>
+        <span class="purple">( )</span>
+        <span class="blue">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">width</span>
+        <span class="white">=</span>
+        <span class="orange">"120px"</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">height</span>
+        <span class="white">=</span>
+        <span class="orange">"120px"</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>
+        <span class="blue">backgroundColor</span>
+        <span class="white">=</span>
+        <span class="orange">"black"</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">circleContainer</span>
+        <span class="white">.</span>
+        <span class="blue">style</span>
+        <span class="white">.</span>å
+        <span class="blue">color</span>
+        <span class="white">=</span>
+        <span class="orange">"white"</span>
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+      </p>
+
+
+
+    </div>
+
+    <div id="output-box">
+      <div id="circle-container"><p>Hello</p></div>
+    </div>
+
+    <script>
+      // real code
+
+      const circleContainer = document.querySelector("#circle-container")
+
+      const widthInput = document.querySelector("#width-input")
+      const heightInput = document.querySelector("#height-input")
+      const backgroundColorInput = document.querySelector("#background-color-input")
+      const colorInput = document.querySelector("#color-input")
+
+      circleContainer.addEventListener("mouseenter", () => {
+        circleContainer.style.width = widthInput.value
+        circleContainer.style.height = heightInput.value
+        circleContainer.style.backgroundColor = backgroundColorInput.value
+        circleContainer.style.color = colorInput.value
+      })
+
+      circleContainer.addEventListener("mouseleave", () => {
+        circleContainer.style.width = "120px"
+        circleContainer.style.height = "120px"
+        circleContainer.style.backgroundColor = "black"
+        circleContainer.style.color = "white"
+      })
+
+      // activity code example
+
+      // // This line targets the circle in the website by its id (circle-container)
+      // const circleContainer = document.querySelector("#circle-container");
+
+      // // The styles change lines of code will trigger everytime the mouse enters the circle
+      // circleContainer.addEventListener("mouseenter", () => {
+      //   circleContainer.style.width = "300px";
+      //   circleContainer.style.height = "300px";
+      //   circleContainer.style.backgroundColor = "purple";
+      //   circleContainer.style.color = "red";
+      // });
+
+      // // The style changes will revert to the original when the mouse leaves the circle
+      // circleContainer.addEventListener("mouseleave", () => {
+      //   circleContainer.style.width = "200px";
+      //   circleContainer.style.height = "200px";
+      //   circleContainer.style.backgroundColor = "black";
+      //   circleContainer.style.color = "white";
+      // });
+    </script>
+  </body>
+</html>

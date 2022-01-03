@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="code-box">
+
+      <p class="comment">
+        // This is an Array that holds all emoji values
+      </p>
+
+      <p class="code">
+        <span class="blue">let</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="white">=</span>
+        <span class="yellow">[</span>
+        <span class="orange">
+          "<input id="current-emoji" class="emoji-input" type="text" value="🙈"/>"
+          <span class="white">,</span>
+          "<input id="current-emoji" class="emoji-input" type="text" value="🙈"/>"
+          <span class="white">,</span>
+          "<input id="current-emoji" class="emoji-input" type="text" value="🙈"/>"
+        </span>
+        <span class="yellow">]</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // This line targets box where the emoji displaying is by its id (emoji-box)
+      </p>
+
+      <p class="code">
+        <span class="darkblue">let</span>
+        <span class="blue">emojiBox</span>
+        <span class="white">=</span>
+        <span class="lightblue">document</span>
+        <span class="white">.</span>
+        <span class="lightyellow">querySelector</span>
+        <span class="yellow">(</span>
+        <span class="orange">"#emoji-box"</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // These next lines will switch the emoji to display based on the emojis in emojisArray, everytime its clicked.
+      </p>
+
+      <p class="code">
+        <span class="blue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="yellow">(</span>
+        <span class="orange">"click"</span>
+        <span class="white">,</span>
+        <span class="purple">( )</span>
+        <span class="blue">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <br>
+
+      <p class="code indented">
+        <span class="purple">if</span>
+        <span class="blue">(</span>
+        <span class="lightblue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white">===</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="yellow">[</span>
+        <span class="green">0</span>
+        <span class="yellow">]</span>
+        <span class="blue">)</span>
+        <span class="blue">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white">=</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="yellow">[</span>
+        <span class="green">1</span>
+        <span class="yellow">]</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">}</span>
+        <span class="purple">else</span>
+        <span class="purple">if</span>
+        <span class="blue">(</span>
+        <span class="lightblue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white">===</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="yellow">[</span>
+        <span class="green">1</span>
+        <span class="yellow">]</span>
+        <span class="blue">)</span>
+        <span class="blue">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white">=</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="yellow">[</span>
+        <span class="green">2</span>
+        <span class="yellow">]</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">}</span>
+        <span class="purple">else</span>
+        <span class="blue">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">emojiBox</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white">=</span>
+        <span class="lightblue">emojisArray</span>
+        <span class="yellow">[</span>
+        <span class="green">0</span>
+        <span class="yellow">]</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">}</span>
+      </p>
+
+      <br>
+
+      <p class="code">
+        <span class="yellow">)</span>
+        <span class="purple">}</span>
+      </p>
+
+    </div>
+
+    <div id="output-box">
+      <h1 id="emoji-box">🙈</h1>
+    </div>
+
+  <script>
+
+    // real code
+
+    // const initialEmoji = document.querySelector("#current-emoji")
+
+    // const emojiOne = document.querySelector("#emoji-one")
+    // const emojiTwo = document.querySelector("#emoji-two")
+
+    // const emojiBox = document.querySelector("#emoji-box")
+
+    // initialEmoji.addEventListener("change", () => {
+    //   emojiBox.innerText = initialEmoji.value
+    // })
+
+    // emojiBox.addEventListener("click", () => {
+    //   if (emojiBox.innerText === emojiOne.value) {
+    //     emojiBox.innerText = emojiTwo.value
+    //   } else {
+    //     emojiBox.innerText = emojiOne.value
+    //   }
+    // })
+
+
+    // activity code example
+
+    // This is an Array that holds all emoji values
+    let emojisArray = ["🙈", "🙉", "🙊"]
+
+    // This line targets box where the emoji displaying is by its id (emoji-box)
+    let emojiBox = document.querySelector("#emoji-box");
+
+    // These next lines will switch the emoji to display based on the emojis in emojisArray, everytime its clicked.
+    emojiBox.addEventListener("click", () => {
+      
+      if (emojiBox.innerText === emojisArray[0]) {
+        emojiBox.innerText = emojisArray[1]
+      } else if (emojiBox.innerText === emojisArray[1]) {
+        emojiBox.innerText = emojisArray[2]
+      } else {
+        emojiBox.innerText = emojisArray[0]
+      }
+
+    })
+
+    // This conditional switches the value of the currentEmoji
+
+
+  </script>
+
+</body>
+</html>

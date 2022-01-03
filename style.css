@@ -1,0 +1,186 @@
+/* Nav */
+
+.nav-btn {
+  width: 300px;
+  height: 100px;
+  font-size: 50px;
+  background-color: rgb(99, 204, 93);
+  margin: 10px;
+}
+
+/* Activities */
+
+body {
+  margin: 0;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#code-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  width: 60vw;
+  height: 90vh;
+  padding: 0px 20px;
+  font-size: 20px;
+}
+
+#code-box p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+#code-box input {
+  background-color: rgb(33, 30, 30);
+  /* color: orange; */
+  border: none;
+  /* width: 30px; */
+  height: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#output-box {
+  height: 90vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.comment {
+  color: green
+}
+
+.white {
+  color: white
+}
+
+.darkblue {
+  color: rgb(55, 84, 170)
+}
+
+.blue {
+  color: #3782CD
+}
+
+.lightblue {
+  color: #7CADDE
+}
+
+.white {
+  color: white
+}
+
+.orange {
+  color: orange
+}
+
+.lightyellow {
+  color: rgb(251, 253, 193)
+}
+
+.yellow {
+  color: yellow
+}
+
+.purple {
+  color: rgb(160, 98, 160)
+}
+
+.green {
+  color: rgb(121, 186, 132)
+}
+
+.indented {
+  margin-left: 15px;
+}
+
+.double-indented {
+  margin-left: 30px;
+}
+
+/* Activity 1 only */
+
+#emoji-box {
+  font-size: 15em;
+}
+
+.emoji-input {
+  width: 30px;
+}
+
+/* activity 2 only */
+
+#circle-container {
+  background-color: black;
+  color: white;
+  font-size: 4em;
+  padding: 40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 200px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#circle-container {
+  transition-duration: 0.2s;
+}
+
+.style-input {
+  width: 100px;
+}
+
+/* activity 3 only */
+
+#confetti-btn {
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  z-index: 1;
+  position: absolute;
+  bottom: 50;
+  left: 50;
+}
+
+.canvas-container {
+  position: relative;
+}
+
+#confetti-btn:hover {background-color: #3e8e41}
+
+#confetti-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#custom_canvas {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+#confetti-function {
+  width: 150px;
+}

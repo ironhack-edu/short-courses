@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="code-box">
+      <p class="comment">
+        // This line creates a new instance of the JSConfetti class. This comes
+        from the package!
+      </p>
+
+      <p class="code">
+        <span class="darkblue">const</span>
+        <span class="blue">jsConfetti</span>
+        <span class="white">=</span>
+        <span class="darkblue">new</span>
+        <span class="green">JSConfetti</span>
+        <span class="yellow">( )</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // This line targets the button that will be clicked.
+      </p>
+
+      <p class="code">
+        <span class="darkblue">let</span>
+        <span class="lightblue">confettiButton</span>
+        <span class="white">=</span>
+        <span class="lightblue">document</span>
+        <span class="white">.</span>
+        <span class="lightyellow">querySelector</span>
+        <span class="yellow">(</span>
+        <span class="orange">"#confetti-btn"</span>
+        <span class="yellow">)</span>
+      </p>
+
+      <br />
+
+      <p class="comment">
+        // Following the package documentation, When the button is clicked, we will invoke the addConfetti()
+        function of jsConfetti. So => jsConfetti.addConfetti()
+      </p>
+
+      <p class="code">
+        <span class="lightblue">confettiButton</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="yellow">(</span>
+        <span class="orange">"click"</span>
+        <span class="white">,</span>
+        <span class="purple">( )</span>
+        <span class="blue">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="blue">jsConfetti</span>
+        <span class="white">.</span>
+        <input id="confetti-function" class="lightyellow" type="text" value="" />
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+      </p>
+    </div>
+
+    <div id="output-box" class="canvas-container">
+      <button id="confetti-btn">Click me!</button>
+      <canvas id="custom_canvas"></canvas>
+    </div>
+
+    <!-- script for confetti package -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script>
+      // real code
+      const canvas = document.querySelector("#custom_canvas");
+
+      const jsConfetti = new JSConfetti({ canvas });
+
+      const input = document.querySelector("#confetti-function");
+
+      let confettiButton = document.querySelector("#confetti-btn");
+
+      confettiButton.addEventListener("click", () => {
+        input.value.trim() === "addConfetti()" && jsConfetti.addConfetti();
+      });
+
+      // activity code example
+
+      // // This line creates a new instance of the JSConfetti class. This comes from the package!
+      // const jsConfetti = new JSConfetti()
+
+      // // This line targets the button that will be clicked.
+      // let confettiButton = document.querySelector("#confetti-btn")
+
+      // // When the button is clicked, we will invoke the addConfetti() function, following the package documentation
+      // confettiButton.addEventListener("click", () => {
+      //   jsConfetti.addConfetti()
+      // })
+    </script>
+  </body>
+</html>
