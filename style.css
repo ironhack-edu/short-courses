@@ -64,6 +64,19 @@ body {
   margin-bottom: 6px;
 }
 
+#code-box span {
+  margin: -2px;
+}
+
+#code-box .separated-right {
+  margin-right: 8px;
+}
+
+#code-box .separated-both {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
 #code-box input {
   background-color: rgb(33, 30, 30);
   /* color: orange; */

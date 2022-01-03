@@ -16,9 +16,9 @@
       </p>
 
       <p class="code">
-        <span class="blue">let</span>
+        <span class="blue separated-right">let</span>
         <span class="lightblue">emojisArray</span>
-        <span class="white">=</span>
+        <span class="white separated-both">=</span>
         <span class="yellow">[</span>
         <span class="orange">
           "<input id="emoji1" class="emoji-input" type="text" value="🙈"/>"
@@ -38,9 +38,9 @@
       </p>
 
       <p class="code">
-        <span class="darkblue">let</span>
+        <span class="darkblue separated-right">let</span>
         <span class="blue">emojiBox</span>
-        <span class="white">=</span>
+        <span class="white separated-both">=</span>
         <span class="lightblue">document</span>
         <span class="white">.</span>
         <span class="lightyellow">querySelector</span>
@@ -62,26 +62,26 @@
         <span class="lightyellow">addEventListener</span>
         <span class="yellow">(</span>
         <span class="orange">"click"</span>
-        <span class="white">,</span>
+        <span class="white separated-right">,</span>
         <span class="purple">( )</span>
-        <span class="blue">=></span>
+        <span class="blue separated-both">=></span>
         <span class="purple">{</span>
       </p>
 
       <br>
 
       <p class="code indented">
-        <span class="purple">if</span>
+        <span class="purple separated-right">if</span>
         <span class="blue">(</span>
         <span class="lightblue">emojiBox</span>
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
-        <span class="white">===</span>
+        <span class="white separated-both">===</span>
         <span class="lightblue">emojisArray</span>
         <span class="yellow">[</span>
         <span class="green">0</span>
         <span class="yellow">]</span>
-        <span class="blue">)</span>
+        <span class="blue separated-right">)</span>
         <span class="blue">{</span>
       </p>
 
@@ -89,7 +89,7 @@
         <span class="lightblue">emojiBox</span>
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
-        <span class="white">=</span>
+        <span class="white separated-right">=</span>
         <span class="lightblue">emojisArray</span>
         <span class="yellow">[</span>
         <span class="green">1</span>
@@ -99,18 +99,17 @@
 
       <p class="code indented">
         <span class="blue">}</span>
-        <span class="purple">else</span>
-        <span class="purple">if</span>
+        <span class="purple separated-both">else if</span>
         <span class="blue">(</span>
         <span class="lightblue">emojiBox</span>
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
-        <span class="white">===</span>
+        <span class="white separated-both">===</span>
         <span class="lightblue">emojisArray</span>
         <span class="yellow">[</span>
         <span class="green">1</span>
         <span class="yellow">]</span>
-        <span class="blue">)</span>
+        <span class="blue separated-right">)</span>
         <span class="blue">{</span>
       </p>
 
@@ -118,7 +117,7 @@
         <span class="lightblue">emojiBox</span>
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
-        <span class="white">=</span>
+        <span class="white separated-both">=</span>
         <span class="lightblue">emojisArray</span>
         <span class="yellow">[</span>
         <span class="green">2</span>
@@ -128,7 +127,7 @@
 
       <p class="code indented">
         <span class="blue">}</span>
-        <span class="purple">else</span>
+        <span class="purple separated-both">else</span>
         <span class="blue">{</span>
       </p>
 
@@ -136,7 +135,7 @@
         <span class="lightblue">emojiBox</span>
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
-        <span class="white">=</span>
+        <span class="white separated-both">=</span>
         <span class="lightblue">emojisArray</span>
         <span class="yellow">[</span>
         <span class="green">0</span>
@@ -151,8 +150,8 @@
       <br>
 
       <p class="code">
-        <span class="yellow">)</span>
         <span class="purple">}</span>
+        <span class="yellow">)</span>
       </p>
 
     </div>
