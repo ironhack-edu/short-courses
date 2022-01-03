@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="code-box">
+
+      <p class="code">
+        <span class="purple">import</span>
+        <span class="yellow">{</span>
+        <span class="lightblue">useState</span>
+        <span class="yellow">}</span>
+        <span class="purple">from</span>
+        <span class="orange">'react'</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="darkblue">function</span>
+        <span class="lightyellow">Counter</span>
+        <span class="yellow">()</span>
+        <span class="yellow">{</span>
+      </p>
+
+      <br>
+
+      <p class="comment indented">
+        // this will define your initial value and your 
+      </p>
+
+      <p class="code indented">
+        <span class="darkblue">const</span>
+        <span class="purple">[</span>
+        <span class="blue">counter</span>
+        <span class="white">,</span>
+        <span class="lightyellow">setCounter</span>
+        <span class="purple">]</span>
+        <span class="white">=</span>
+        <span class="lightyellow">useState</span>
+        <span class="purple">(</span>
+        <input id="initial-state" class="green" type="text" value="0" />
+        <span class="purple">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="comment indented">
+        // this line will define how much the counter will increase when clicked
+      </p>
+
+      <p class="code indented">
+        <span class="darkblue">const</span>
+        <span class="lightyellow">increaseCounter</span>
+        <span class="white">=</span>
+        <span class="purple">()</span>
+        <span class="blue">=></span>
+        <span class="lightyellow">setCounter</span>
+        <span class="purple">(</span>
+        <span class="blue">counter</span>
+        <span class="white">+</span>
+        <input id="increase-state" class="green" type="text" value="1" />
+        <span class="purple">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code indented">
+        <span class="purple">return (</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="gray">«</span>
+        <span class="blue">div</span>
+        <span class="gray">»</span>
+      </p>
+
+
+      <p class="code triple-indented">
+        <span class="white">Counter:</span>
+        <span class="blue">{</span>
+        <span class="blue">counter</span>
+        <span class="blue">}</span>
+      </p>
+
+      <p class="code triple-indented">
+        <span class="gray">«</span>
+        <span class="blue">button</span>
+        <span class="lightblue">onClick</span>
+        <span class="white">=</span>
+        <span class="blue">{</span>
+        <span class="lightyellow">increaseCounter</span>
+        <span class="blue">}</span>
+        <span class="gray">»</span>
+        <span class="white">Increase</span>
+        <span class="gray">«/</span>
+        <span class="blue">button</span>
+        <span class="gray">»</span>
+
+      </p>
+
+      <p class="code double-indented">
+        <span class="gray">«/</span>
+        <span class="blue">div</span>
+        <span class="gray">»</span>
+      </p>
+
+      <p class="code indented">
+        <span class="purple">)</span>
+      </p>
+      
+      <p class="code">
+        <span class="yellow">}</span>
+      </p>
+
+      <p class="code">
+        <span class="purple">export default</span>
+        <span class="lightyellow">Counter</span>
+      </p>
+
+    </div>
+
+    <div id="output-box" class="counter-container">
+      <h1>Counter: <span id="state">0</span></h1>
+      <button id="counter-btn">Increase</button>
+    </div>
+
+    <!-- script for confetti package -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script>
+      // real code
+
+      const initialCounter = document.querySelector("#initial-state") 
+      const increaseCounter = document.querySelector("#increase-state") 
+      const counterBtn = document.querySelector("#counter-btn")
+      const counter = document.querySelector("#state")
+
+      initialCounter.addEventListener("change", () => {
+        counter.innerText = initialCounter.value
+      })
+
+      counterBtn.addEventListener("click", () => {
+        counter.innerText = Number(counter.innerText) +  Number(increaseCounter.value)
+      })
+
+      // activity code example
+
+      // import { useState } from 'react'
+
+      // function Counter() {
+
+      //   // this will define your initial value and your 
+      //   const [counter, setCounter] = useState(0)
+
+      //   // this line will define how much the counter will increase when clicked
+      //   const increaseCounter = () => setCounter(counter + 1)
+
+      //   return (
+      //     <div>
+      //       Counter: {counter}
+      //       <button onClick={increaseCounter}>Increase</button>
+      //     </div>
+      //   )
+      // }
+
+      // export default Counter
+
+
+    </script>
+  </body>
+</html>
