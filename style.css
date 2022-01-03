@@ -144,17 +144,7 @@ body {
   margin-left: 45px;
 }
 
-/* Activity 1 only */
-
-#emoji-box {
-  font-size: 15em;
-}
-
-.emoji-input {
-  width: 30px;
-}
-
-/* activity 2 only */
+/* activity 1 only */
 
 #circle-container {
   background-color: black;
@@ -176,6 +166,16 @@ body {
 
 .style-input {
   width: 100px;
+}
+
+/* Activity 2 only */
+
+#current-emoji {
+  font-size: 15em;
+}
+
+.emoji-input {
+  width: 30px;
 }
 
 /* activity 3 only */
