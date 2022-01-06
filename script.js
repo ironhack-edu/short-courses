@@ -56,7 +56,7 @@ circleButtons.forEach((eachCircle) => {
 circleButtons.forEach((eachCircle, index) => {
   eachCircle.addEventListener("click", () => {
     let newValue = Number(counters[index].innerText) + Number(counterInput.value);
-    counters[index].innerText =newValue
+    counters[index].innerText = newValue
   });
 });
 
