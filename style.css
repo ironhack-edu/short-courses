@@ -63,6 +63,7 @@ body {
   height: 90vh;
   padding: 0px 20px;
   font-size: 1.4vw; /* depends on vw */
+  overflow: auto;
 }
 
 #code-box p {
@@ -91,16 +92,6 @@ body {
   height: 1.6vw; /* depends on vw */
   font-size: 1.4vw; /* depends on vw */
   text-align: center;
-}
-
-#output-box {
-  height: 90vh;
-  width: 30vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
 }
 
 .comment {
@@ -161,6 +152,18 @@ body {
 
 .triple-indented {
   margin-left: 60px;
+}
+
+/* Output Box */
+
+#output-box {
+  height: 90vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
 /* activity 1 only */

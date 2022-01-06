@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Code</title>
+    <link rel="stylesheet" href="styleAll.css" />
+  </head>
+  <body>
+    <div id="output-box" class="canvas-container">
+      <div id="output-content">
+        <div id="post">
+          <p>Welcome to Ironhack</p>
+          <p>This is the first step on becoming a FullStack Web developer</p>
+        </div>
+        <div id="reactions">
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+        </div>
+      </div>
+      <canvas id="custom_canvas"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <script>
+      // ***** ACTIVITY 1 *****
+
+      const circleButtons = document.querySelectorAll(".circle-btn");
+
+      let emojiOne = "🐒"; // <= Fill in the emoji to use!
+      let emojiTwo = "🔥"; // <= Fill in the emoji to use!
+      let emojiThree = "❤️"; // <= Fill in the emoji to use!
+
+      circleButtons[0].innerText = emojiOne;
+      circleButtons[1].innerText = emojiTwo;
+      circleButtons[2].innerText = emojiThree;
+
+      // ***** ACTIVITY 2 *****
+
+      circleButtons.forEach((eachCircle) => {
+        eachCircle.addEventListener("mouseenter", () => {
+          eachCircle.style.width = "40px"; // <= Fill in the styles to apply on mouseover!
+          eachCircle.style.height = "40px"; // <= Fill in the styles to apply on mouseover!
+          eachCircle.style.backgroundColor = "red"; // <= Fill in the styles to apply on mouseover!
+        });
+      });
+
+      circleButtons.forEach((eachCircle) => {
+        eachCircle.addEventListener("mouseleave", () => {
+          eachCircle.style.width = "15px";
+          eachCircle.style.height = "15px";
+          eachCircle.style.backgroundColor = "white";
+        });
+      });
+
+      // ***** ACTIVITY 3 *****
+
+      const counters = document.querySelectorAll(".counter");
+
+      circleButtons.forEach((eachCircle, index) => {
+        eachCircle.addEventListener("click", () => {
+          // <= Fill the type of event
+          counters[index].innerText = Number(counters[index].innerText) + 1; // <= Fill the amount it will increase on every click!
+        });
+      });
+
+      // ***** ACTIVITY 4 *****
+
+      const canvas = document.querySelector("#custom_canvas");
+
+      const jsConfetti = new JSConfetti({ canvas });
+
+      const input = document.querySelector("#confetti-function");
+
+      let confettiButton = document.querySelector("#confetti-btn");
+
+      circleButtons.forEach((eachCircle, index) => {
+        eachCircle.addEventListener("click", () => {
+
+          jsConfetti.addConfetti()
+
+          jsConfetti.addConfetti({
+            emojis: [eachCircle.innerText]
+          })
+
+        });
+      });
+
+    </script>
+  </body>
+</html>

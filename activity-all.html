@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity All</title>
+    <link rel="stylesheet" href="styleAll.css" />
+  </head>
+  <body>
+    <div id="code-box">
+      <!-- ***** ACTIVITY 1 ***** -->
+      <div class="activity-title">
+        <hr />
+        <span>ACTIVITY 1</span>
+        <hr />
+      </div>
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">circleButtons</span>
+        <span class="white separated-right">=</span>
+        <span class="lightblue">document</span>
+        <span class="white">.</span>
+        <span class="lightyellow">querySelector</span>
+        <span class="yellow">(</span>
+        <span class="orange">".circle-btn"</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br />
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">emojiOne</span>
+        <span class="white separated-right">=</span>
+        <span class="orange">"</span>
+        <input id="emoji-one-input" class="emoji-input" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+
+      </p>
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">emojiTwo</span>
+        <span class="white separated-right">=</span>
+        <span class="orange">"</span>
+        <input id="emoji-two-input" class="emoji-input" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">emojiThree</span>
+        <span class="white separated-right">=</span>
+        <span class="orange">"</span>
+        <input id="emoji-three-input" class="emoji-input" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <br />
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="yellow">[</span>
+        <span class="green">0</span>
+        <span class="yellow">]</span>
+        <span class="white">.</span>
+        <span class="blue">innerText</span>
+        <span class="white separated-both">=</span>
+        <span class="blue">emojiOne</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="yellow">[</span>
+        <span class="green">1</span>
+        <span class="yellow">]</span>
+        <span class="white">.</span>
+        <span class="blue">innerText</span>
+        <span class="white separated-both">=</span>
+        <span class="blue">emojiTwo</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="yellow">[</span>
+        <span class="green">2</span>
+        <span class="yellow">]</span>
+        <span class="white">.</span>
+        <span class="blue">innerText</span>
+        <span class="white separated-both">=</span>
+        <span class="blue">emojiThree</span>
+        <span class="white">;</span>
+      </p>
+
+      <!-- ***** ACTIVITY 2 ***** -->
+      <div class="activity-title">
+        <hr />
+        <span>ACTIVITY 2</span>
+        <hr />
+      </div>
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="white">.</span>
+        <span class="lightyellow">forEach</span>
+        <span class="yellow">(</span>
+        <span class="purple">(</span>
+        <span class="lightblue">eachCircle</span>
+        <span class="purple">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="blue">(</span>
+        <span class="orange">"mouseenter"</span>
+        <span class="white separated-right">,</span>
+        <span class="yellow">(</span>
+        <span class="yellow">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="yellow">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightblue">style</span>
+        <span class="white">.</span>
+        <span class="lightblue">width</span>
+        <span class="white separated-both">=</span>
+        <span class="orange">"</span>
+        <input id="style-width-input" class="style-input orange" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightblue">style</span>
+        <span class="white">.</span>
+        <span class="lightblue">height</span>
+        <span class="white separated-both">=</span>
+        <span class="orange">"</span>
+        <input id="style-height-input" class="style-input orange" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightblue">style</span>
+        <span class="white">.</span>
+        <span class="lightblue">backgroundColor</span>
+        <span class="white separated-both">=</span>
+        <span class="orange">"</span>
+        <input id="style-background-color-input" class="style-input orange" type="text" />
+        <span class="orange">"</span>
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code indented">
+        <span class="yellow">}</span>
+        <span class="blue">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <!-- ***** ACTIVITY 3 ***** -->
+      <div class="activity-title">
+        <hr />
+        <span>ACTIVITY 3</span>
+        <hr />
+      </div>
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">counters</span>
+        <span class="white separated-right">=</span>
+        <span class="lightblue">document</span>
+        <span class="white">.</span>
+        <span class="lightyellow">querySelector</span>
+        <span class="yellow">(</span>
+        <span class="orange">".counter"</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br>
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="white">.</span>
+        <span class="lightyellow">forEach</span>
+        <span class="yellow">(</span>
+        <span class="purple">(</span>
+        <span class="lightblue">eachCircle</span>
+        <span class="white separated-right">,</span>
+        <span class="lightblue">index</span>
+        <span class="purple">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="blue">(</span>
+        <span class="orange">"click"</span>
+        <span class="white separated-right">,</span>
+        <span class="yellow">(</span>
+        <span class="yellow">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="yellow">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="blue">counters</span>
+        <span class="purple">[</span>
+        <span class="lightblue">index</span>
+        <span class="purple">]</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="white separated-both">=</span>
+        <!-- <span class="green">Number</span>
+        <span class="purple">(</span> -->
+        <span class="blue">counters</span>
+        <span class="blue">[</span>
+        <span class="lightblue">index</span>
+        <span class="blue">]</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <!-- <span class="purple">)</span> -->
+        <span class="white separated-both">+</span>
+        <input id="counter-input" class="counter-input green" type="text" />
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code indented">
+        <span class="yellow">}</span>
+        <span class="blue">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <!-- ***** ACTIVITY 4 ***** -->
+      <div class="activity-title">
+        <hr />
+        <span>ACTIVITY 4</span>
+        <hr />
+      </div>
+
+      <p class="comment">
+        // For this exercise the additional script line has already been added to the HTML.
+      </p>
+      
+      <br>
+
+      <p class="code">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue">jsConfetti</span>
+        <span class="white separated-both">=</span>
+        <span class="darkblue separated-right">new</span>
+        <span class="green">JSConfetti</span>
+        <span class="yellow">(</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br>
+
+      <p class="code">
+        <span class="blue">circleButtons</span>
+        <span class="white">.</span>
+        <span class="lightyellow">forEach</span>
+        <span class="yellow">(</span>
+        <span class="purple">(</span>
+        <span class="lightblue">eachCircle</span>
+        <span class="purple">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="purple">{</span>
+      </p>
+
+      <p class="code indented">
+        <span class="lightblue">eachCircle</span>
+        <span class="white">.</span>
+        <span class="lightyellow">addEventListener</span>
+        <span class="blue">(</span>
+        <span class="orange">"click"</span>
+        <span class="white separated-right">,</span>
+        <span class="yellow">(</span>
+        <span class="yellow">)</span>
+        <span class="blue separated-both">=></span>
+        <span class="yellow">{</span>
+      </p>
+
+      <p class="code double-indented">
+        <span class="blue">jsConfetti</span>
+        <span class="white">.</span>
+        <input id="confetti-function-input" class="confetti-input lightyellow" type="text" />
+        <span class="white">;</span>
+        <span class="ihblue separated-left">‹--- Fill out here</span>
+      </p>
+
+      <p class="code indented">
+        <span class="yellow">}</span>
+        <span class="blue">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code">
+        <span class="purple">}</span>
+        <span class="yellow">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <br>
+
+    </div>
+
+    <!-- ! ***** OUTPUT BOX ***** ! -->
+    <div id="output-box" class="canvas-container">
+
+      <div id="output-content">
+
+        <div id="header-container">
+          <div id="logo-container">
+            <img src="./logo.png" alt="logo">
+          </div>
+          <div id="title-container">
+            <h1>Forum</h1>
+          </div>
+        </div>
+
+        <div id="post">
+          <p><b>Welcome to Ironhack!</b></p>
+          <p>This is the first step on becoming a FullStack Web developer</p>
+        </div>
+
+        <div id="reactions">
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+          <div class="circle-btn"></div>
+          <div class="counter">0</div>
+        </div>
+
+      </div>
+
+      <canvas id="custom_canvas"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
