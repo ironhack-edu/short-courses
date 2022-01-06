@@ -214,7 +214,7 @@ body {
 #header-container {
   display: flex;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 10vh;
 }
 
 #logo-container {
@@ -253,6 +253,7 @@ body {
 #reactions {
   display: flex;
   flex-direction: row;
+  height: 10vh;
 }
 
 .circle-btn {
@@ -261,8 +262,8 @@ body {
   font-size: 3em;
   padding: 40px;
   margin: 10px;
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 1000px;
   display: flex;
   justify-content: center;
