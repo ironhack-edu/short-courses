@@ -242,6 +242,7 @@ body {
 
 #post {
   width: 83%;
+  font-size: 1em;
   height: 200px;
   padding: 20px;
   margin-bottom: 20px;
@@ -258,18 +259,17 @@ body {
 
 .circle-btn {
   border: none;
-  color: white;
-  font-size: 3em;
-  padding: 40px;
+  font-size: 2rem;
   margin: 10px;
-  width: 5px;
-  height: 5px;
+  width: 60px;
+  height: 60px;
   border-radius: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition-duration: 0.2s;
-  background-color: white
+  background-color: white;
+  color: black;
 }
 
 .circle-btn:active {
@@ -279,7 +279,16 @@ body {
 .counter {
   position: relative;
   left: -20px;
+  font-size: 13px;
   font-weight: 700;
+  background-color: white;
+  height: 18px;
+  min-width: 18px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
 }
 
 
