@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Activity 1</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
   </head>
   <body>
     <div id="code-box">
@@ -54,7 +54,12 @@
         <span class="blue">width</span>
         <span class="white separated-both">=</span>
         <span class="orange">
-          "<input id="width-input" class="style-input orange" type="text" value="200px"/>"
+          "<input
+            id="width-input"
+            class="style-input orange"
+            type="text"
+            value="200px"
+          />"
         </span>
         <span class="white">;</span>
       </p>
@@ -67,7 +72,12 @@
         <span class="blue">height</span>
         <span class="white separated-both">=</span>
         <span class="orange">
-          "<input id="height-input" class="style-input orange" type="text" value="200px"/>"
+          "<input
+            id="height-input"
+            class="style-input orange"
+            type="text"
+            value="200px"
+          />"
         </span>
         <span class="white">;</span>
       </p>
@@ -80,7 +90,12 @@
         <span class="blue">backgroundColor</span>
         <span class="white separated-both">=</span>
         <span class="orange">
-          "<input id="background-color-input" class="style-input orange" type="text" value="purple"/>"
+          "<input
+            id="background-color-input"
+            class="style-input orange"
+            type="text"
+            value="purple"
+          />"
         </span>
         <span class="white">;</span>
       </p>
@@ -93,7 +108,12 @@
         <span class="blue">color</span>
         <span class="white separated-both">=</span>
         <span class="orange">
-          "<input id="color-input" class="style-input orange" type="text" value="red"/>"
+          "<input
+            id="color-input"
+            class="style-input orange"
+            type="text"
+            value="red"
+          />"
         </span>
         <span class="white">;</span>
       </p>
@@ -107,7 +127,8 @@
       <br />
 
       <p class="comment">
-        // The style changes will revert to the original when the mouse leaves the circle
+        // The style changes will revert to the original when the mouse leaves
+        the circle
       </p>
 
       <p class="code">
@@ -171,9 +192,6 @@
         <span class="yellow">)</span>
         <span class="white">;</span>
       </p>
-
-
-
     </div>
 
     <div id="output-box">
@@ -183,26 +201,28 @@
     <script>
       // real code
 
-      const circleContainer = document.querySelector("#circle-container")
+      const circleContainer = document.querySelector("#circle-container");
 
-      const widthInput = document.querySelector("#width-input")
-      const heightInput = document.querySelector("#height-input")
-      const backgroundColorInput = document.querySelector("#background-color-input")
-      const colorInput = document.querySelector("#color-input")
+      const widthInput = document.querySelector("#width-input");
+      const heightInput = document.querySelector("#height-input");
+      const backgroundColorInput = document.querySelector(
+        "#background-color-input"
+      );
+      const colorInput = document.querySelector("#color-input");
 
       circleContainer.addEventListener("mouseenter", () => {
-        circleContainer.style.width = widthInput.value
-        circleContainer.style.height = heightInput.value
-        circleContainer.style.backgroundColor = backgroundColorInput.value
-        circleContainer.style.color = colorInput.value
-      })
+        circleContainer.style.width = widthInput.value;
+        circleContainer.style.height = heightInput.value;
+        circleContainer.style.backgroundColor = backgroundColorInput.value;
+        circleContainer.style.color = colorInput.value;
+      });
 
       circleContainer.addEventListener("mouseleave", () => {
-        circleContainer.style.width = "120px"
-        circleContainer.style.height = "120px"
-        circleContainer.style.backgroundColor = "black"
-        circleContainer.style.color = "white"
-      })
+        circleContainer.style.width = "120px";
+        circleContainer.style.height = "120px";
+        circleContainer.style.backgroundColor = "black";
+        circleContainer.style.color = "white";
+      });
 
       // activity code example
 
