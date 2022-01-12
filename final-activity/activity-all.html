@@ -239,6 +239,22 @@
       </p>
 
       <p class="code double-indented">
+        <span class="darkblue separated-right">let</span>
+        <span class="blue separated-right">previousCounter</span>
+        <span class="white separated-right">=</span>
+        <span class="green">Number</span>
+        <span class="purple">(</span>
+        <span class="blue">counters</span>
+        <span class="blue">[</span>
+        <span class="lightblue">index</span>
+        <span class="blue">]</span>
+        <span class="white">.</span>
+        <span class="lightblue">innerText</span>
+        <span class="purple">)</span>
+        <span class="white">;</span>
+      </p>
+
+      <p class="code double-indented">
         <span class="blue">counters</span>
         <span class="purple">[</span>
         <span class="lightblue">index</span>
@@ -246,15 +262,7 @@
         <span class="white">.</span>
         <span class="lightblue">innerText</span>
         <span class="white separated-both">=</span>
-        <!-- <span class="green">Number</span>
-        <span class="purple">(</span> -->
-        <span class="blue">counters</span>
-        <span class="purple">[</span>
-        <span class="lightblue">index</span>
-        <span class="purple">]</span>
-        <span class="white">.</span>
-        <span class="lightblue">innerText</span>
-        <!-- <span class="purple">)</span> -->
+        <span class="blue">previousCounter</span>
         <span class="white separated-both">+</span>
         <input id="counter-input" class="counter-input green" type="text" />
         <span class="white">;</span>
@@ -322,6 +330,10 @@
         <span class="yellow">)</span>
         <span class="blue separated-both">=></span>
         <span class="yellow">{</span>
+      </p>
+
+      <p class="comment double-indented">
+        // The documentation indicates to call the function by adding: addConffeti()
       </p>
 
       <p class="code double-indented">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real Code</title>
-    <link rel="stylesheet" href="styleAll.css" />
+    <link rel="stylesheet" href="../styles/styleFinal.css" />
   </head>
   <body>
     <div id="output-box" class="canvas-container">
@@ -66,7 +66,8 @@
       circleButtons.forEach((eachCircle, index) => {
         eachCircle.addEventListener("click", () => {
           // <= Fill the type of event
-          counters[index].innerText = Number(counters[index].innerText) + 1; // <= Fill the amount it will increase on every click!
+          let previousCounter = Number(counters[index].innerText)
+          counters[index].innerText = previousCounter + 1; // <= Fill the amount it will increase on every click!
         });
       });
 
