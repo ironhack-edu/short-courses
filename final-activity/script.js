@@ -35,6 +35,26 @@ const isEmoji = (str) => {
   }
 }
 
+const successFeedback = [
+  'Nice! Very good job!',
+  'That\'s correct, well done!',
+  'Great work, that\'s the right answer!',
+  'Keep up the good work!',
+  'Terrific job, well done!',
+];
+
+const rotateRandom = (arr) => {
+  let pool = arr.slice();
+  return () => {
+    if (pool.length === 0) pool = arr.slice();
+    const randomIndex = Math.floor(Math.random() * (pool.length - 0));
+    const returnVal = pool.splice(randomIndex, 1)[0];
+    return returnVal;
+  };
+};
+
+const getSuccessFeedback = rotateRandom(successFeedback);
+
 // DOM TO ALTER
 
 const circleButtons = document.querySelectorAll(".circle-btn");
@@ -45,7 +65,7 @@ const counters = document.querySelectorAll(".counter");
 emojiOneInput.addEventListener("change", () => {
   if (isEmoji(emojiOneInput.value)) {
     circleButtons[0].innerText = emojiOneInput.value;
-    emoji1InputCheck.innerText = "Nice! Very good job!";
+    emoji1InputCheck.innerText = getSuccessFeedback();
     emoji1InputCheck.style.color = "lightgreen";
   } else {
     circleButtons[0].innerText = "";
@@ -58,7 +78,7 @@ emojiOneInput.addEventListener("change", () => {
 emojiTwoInput.addEventListener("change", () => {
   if (isEmoji(emojiTwoInput.value)) {
     circleButtons[1].innerText = emojiTwoInput.value;
-    emoji2InputCheck.innerText = "Nice! Very good job!";
+    emoji2InputCheck.innerText = getSuccessFeedback();
     emoji2InputCheck.style.color = "lightgreen";
   } else {
     circleButtons[1].innerText = "";
@@ -71,7 +91,7 @@ emojiTwoInput.addEventListener("change", () => {
 emojiThreeInput.addEventListener("change", () => {
   if (isEmoji(emojiThreeInput.value)) {
     circleButtons[2].innerText = emojiThreeInput.value;
-    emoji3InputCheck.innerText = "Nice! Very good job!";
+    emoji3InputCheck.innerText = getSuccessFeedback();
     emoji3InputCheck.style.color = "lightgreen";
   } else {
     circleButtons[2].innerText = "";
@@ -97,7 +117,7 @@ const isColor = (strColor) => {
 
 widthInput.addEventListener("change", () => {
   if (isPixel(widthInput.value)) {
-    emoji4InputCheck.innerText = "Nice! Very good job!";
+    emoji4InputCheck.innerText = getSuccessFeedback();
     emoji4InputCheck.style.color = "lightgreen";
   } else {
     emoji4InputCheck.innerText =
@@ -108,7 +128,7 @@ widthInput.addEventListener("change", () => {
 
 heightInput.addEventListener("change", () => {
   if (isPixel(heightInput.value)) {
-    emoji5InputCheck.innerText = "Nice! Very good job!";
+    emoji5InputCheck.innerText = getSuccessFeedback();
     emoji5InputCheck.style.color = "lightgreen";
   } else {
     emoji5InputCheck.innerText =
@@ -119,7 +139,7 @@ heightInput.addEventListener("change", () => {
 
 backgroundColorInput.addEventListener("change", () => {
   if (isColor(backgroundColorInput.value)) {
-    emoji6InputCheck.innerText = "Nice! Very good job!";
+    emoji6InputCheck.innerText = getSuccessFeedback();
     emoji6InputCheck.style.color = "lightgreen";
   } else {
     emoji6InputCheck.innerText =
@@ -149,7 +169,7 @@ circleButtons.forEach((eachCircle) => {
 counterInput.addEventListener("change", () => {
   console.log(counterInput.value)
   if (!isNaN(Number(counterInput.value))) {
-    emoji7InputCheck.innerText = "Nice! Very good job!";
+    emoji7InputCheck.innerText = getSuccessFeedback();
     emoji7InputCheck.style.color = "lightgreen";
   } else {
     emoji7InputCheck.innerText =
@@ -170,7 +190,7 @@ circleButtons.forEach((eachCircle, index) => {
 
 confettiInput.addEventListener("change", () => {
   if (confettiInput.value.trim() === "addConfetti()") {
-    emoji8InputCheck.innerText = "Nice! Very good job!";
+    emoji8InputCheck.innerText = getSuccessFeedback();
     emoji8InputCheck.style.color = "lightgreen";
   } else {
     emoji8InputCheck.innerText =
