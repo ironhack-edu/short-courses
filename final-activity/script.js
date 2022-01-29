@@ -43,6 +43,11 @@ const successFeedback = [
   'Terrific job, well done!',
 ];
 
+const failFeedback = [
+  'Not quite, have another go.',
+  'Not quite, try again.',
+];
+
 const rotateRandom = (arr) => {
   let pool = arr.slice();
   return () => {
@@ -54,6 +59,27 @@ const rotateRandom = (arr) => {
 };
 
 const getSuccessFeedback = rotateRandom(successFeedback);
+const getGenericFailFeedback = rotateRandom(failFeedback);
+
+const createInputFeedback = ((element) => {
+  const triesBeforeSpoiler = 1;
+  let triesSoFar = 0;
+
+  return {
+    succeed: () => {
+      triesSoFar = 0;
+      element.innerText = getSuccessFeedback();
+      element.style.color = "lightgreen";
+    },
+    fail: (errorMsg) => {
+      triesSoFar += 1;
+      element.innerText = triesSoFar > triesBeforeSpoiler
+        ? errorMsg
+        : getGenericFailFeedback();
+      element.style.color = "salmon";
+    },
+  };
+});
 
 // DOM TO ALTER
 
@@ -62,42 +88,36 @@ const counters = document.querySelectorAll(".counter");
 
 // ACTIVITY 1
 
+const emoji1Feedback = createInputFeedback(emoji1InputCheck);
 emojiOneInput.addEventListener("change", () => {
   if (isEmoji(emojiOneInput.value)) {
     circleButtons[0].innerText = emojiOneInput.value;
-    emoji1InputCheck.innerText = getSuccessFeedback();
-    emoji1InputCheck.style.color = "lightgreen";
+    emoji1Feedback.succeed();
   } else {
     circleButtons[0].innerText = "";
-    emoji1InputCheck.innerText =
-      "Not quite. Simply copy & paste an emoji here, like ❤️";
-    emoji1InputCheck.style.color = "salmon";
+    emoji1Feedback.fail("Not quite. Simply copy & paste an emoji here, like ❤️");
   }
 });
 
+const emoji2Feedback = createInputFeedback(emoji2InputCheck);
 emojiTwoInput.addEventListener("change", () => {
   if (isEmoji(emojiTwoInput.value)) {
     circleButtons[1].innerText = emojiTwoInput.value;
-    emoji2InputCheck.innerText = getSuccessFeedback();
-    emoji2InputCheck.style.color = "lightgreen";
+    emoji2Feedback.succeed();
   } else {
     circleButtons[1].innerText = "";
-    emoji2InputCheck.innerText =
-      "Not quite. Simply copy & paste an emoji here, like 🔥";
-    emoji2InputCheck.style.color = "salmon";
+    emoji2Feedback.fail("Not quite. Simply copy & paste an emoji here, like 🔥");
   }
 });
 
+const emoji3Feedback = createInputFeedback(emoji3InputCheck);
 emojiThreeInput.addEventListener("change", () => {
   if (isEmoji(emojiThreeInput.value)) {
     circleButtons[2].innerText = emojiThreeInput.value;
-    emoji3InputCheck.innerText = getSuccessFeedback();
-    emoji3InputCheck.style.color = "lightgreen";
+    emoji3Feedback.succeed();
   } else {
     circleButtons[2].innerText = "";
-    emoji3InputCheck.innerText =
-      "Not quite. Simply copy & paste an emoji here, like ✨";
-    emoji3InputCheck.style.color = "salmon";
+    emoji3Feedback.fail("Not quite. Simply copy & paste an emoji here, like ✨");
   }
 });
 
@@ -115,38 +135,38 @@ const isColor = (strColor) => {
   return s.color !== '';
 }
 
+const widthFeedback = createInputFeedback(emoji4InputCheck);
 widthInput.addEventListener("change", () => {
   if (isPixel(widthInput.value)) {
-    emoji4InputCheck.innerText = getSuccessFeedback();
-    emoji4InputCheck.style.color = "lightgreen";
+    widthFeedback.succeed();
   } else {
-    emoji4InputCheck.innerText =
-      "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces";
-    emoji4InputCheck.style.color = "salmon";
+    widthFeedback.fail(
+      "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces."
+    );
   }
-}); 
+});
 
+const heightFeedback = createInputFeedback(emoji5InputCheck);
 heightInput.addEventListener("change", () => {
   if (isPixel(heightInput.value)) {
-    emoji5InputCheck.innerText = getSuccessFeedback();
-    emoji5InputCheck.style.color = "lightgreen";
+    heightFeedback.succeed();
   } else {
-    emoji5InputCheck.innerText =
-      "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces";
-    emoji5InputCheck.style.color = "salmon";
+    heightFeedback.fail(
+      "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces."
+    );
   }
-}); 
+});
 
+const bgColorFeedback = createInputFeedback(emoji6InputCheck);
 backgroundColorInput.addEventListener("change", () => {
   if (isColor(backgroundColorInput.value)) {
-    emoji6InputCheck.innerText = getSuccessFeedback();
-    emoji6InputCheck.style.color = "lightgreen";
+    bgColorFeedback.succeed();
   } else {
-    emoji6InputCheck.innerText =
-      "Not quite. Simply add a color value, like 'red' or 'blue' ";
-    emoji6InputCheck.style.color = "salmon";
+    bgColorFeedback.fail(
+      "Not quite. Simply add a color value, like 'red' or 'blue'."
+    );
   }
-}); 
+});
 
 circleButtons.forEach((eachCircle) => {
   eachCircle.addEventListener("mouseenter", () => {
@@ -166,17 +186,17 @@ circleButtons.forEach((eachCircle) => {
 
 // ACTIVITY 3
 
+const counterFeedback = createInputFeedback(emoji7InputCheck);
 counterInput.addEventListener("change", () => {
   console.log(counterInput.value)
   if (!isNaN(Number(counterInput.value))) {
-    emoji7InputCheck.innerText = getSuccessFeedback();
-    emoji7InputCheck.style.color = "lightgreen";
+    counterFeedback.succeed();
   } else {
-    emoji7InputCheck.innerText =
-      "Not quite. Simply add a number value here, like 1 or 7";
-    emoji7InputCheck.style.color = "salmon";
+    counterFeedback.fail(
+      "Not quite. Simply add a number value here, like 1 or 7."
+    );
   }
-}); 
+});
 
 circleButtons.forEach((eachCircle, index) => {
   eachCircle.addEventListener("click", () => {
@@ -188,16 +208,14 @@ circleButtons.forEach((eachCircle, index) => {
 
 // ACTIVITY 4
 
+const confettiFeedback = createInputFeedback(emoji8InputCheck);
 confettiInput.addEventListener("change", () => {
   if (confettiInput.value.trim() === "addConfetti()") {
-    emoji8InputCheck.innerText = getSuccessFeedback();
-    emoji8InputCheck.style.color = "lightgreen";
+    confettiFeedback.succeed();
   } else {
-    emoji8InputCheck.innerText =
-      "Not quite. Simply add 'addConfetti()' here";
-    emoji8InputCheck.style.color = "salmon";
+    confettiFeedback.fail("Not quite. Type 'addConfetti()' here.");
   }
-}); 
+});
 
 const canvas = document.querySelector("#custom_canvas");
 
