@@ -10,8 +10,6 @@ const backgroundColorInput = document.querySelector(
   "#style-background-color-input"
 );
 
-const counterInput = document.querySelector("#counter-input");
-
 const confettiInput = document.querySelector("#confetti-function-input");
 
 const emoji1InputCheck = document.querySelector("#emoji-1-input-check");
@@ -21,7 +19,6 @@ const emoji4InputCheck = document.querySelector("#emoji-4-input-check");
 const emoji5InputCheck = document.querySelector("#emoji-5-input-check");
 const emoji6InputCheck = document.querySelector("#emoji-6-input-check");
 const emoji7InputCheck = document.querySelector("#emoji-7-input-check");
-const emoji8InputCheck = document.querySelector("#emoji-8-input-check");
 
 const isEmoji = (str) => {
   console.log(str);
@@ -186,29 +183,7 @@ circleButtons.forEach((eachCircle) => {
 
 // ACTIVITY 3
 
-const counterFeedback = createInputFeedback(emoji7InputCheck);
-counterInput.addEventListener("change", () => {
-  console.log(counterInput.value)
-  if (!isNaN(Number(counterInput.value))) {
-    counterFeedback.succeed();
-  } else {
-    counterFeedback.fail(
-      "Not quite. Simply add a number value here, like 1 or 7."
-    );
-  }
-});
-
-circleButtons.forEach((eachCircle, index) => {
-  eachCircle.addEventListener("click", () => {
-    let newValue =
-      Number(counters[index].innerText) + Number(counterInput.value);
-    counters[index].innerText = newValue;
-  });
-});
-
-// ACTIVITY 4
-
-const confettiFeedback = createInputFeedback(emoji8InputCheck);
+const confettiFeedback = createInputFeedback(emoji7InputCheck);
 confettiInput.addEventListener("change", () => {
   if (confettiInput.value.trim() === "addConfetti()") {
     confettiFeedback.succeed();
@@ -228,5 +203,14 @@ circleButtons.forEach((eachCircle) => {
       .filter((e) => e !== " ")
       .join("");
     cleanconfettiInput === "addConfetti()" && jsConfetti.addConfetti();
+  });
+});
+
+// REMOVED ACTIVITY (functionality on page still works)
+
+circleButtons.forEach((eachCircle, index) => {
+  eachCircle.addEventListener("click", () => {
+    let newValue = Number(counters[index].innerText) + 1;
+    counters[index].innerText = newValue;
   });
 });
