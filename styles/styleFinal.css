@@ -103,7 +103,7 @@ body {
 }
 
 .comment {
-  color: green;
+  color: #2cc5fa;
 }
 
 .white {
@@ -172,6 +172,10 @@ body {
 
 .style-input {
   width: 100px;
+}
+
+.variable-input {
+  width: 110px;
 }
 
 .counter-input {
