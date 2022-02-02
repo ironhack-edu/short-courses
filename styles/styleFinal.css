@@ -95,6 +95,11 @@ body {
   background-color: rgb(77, 30, 30);
 }
 
+#code-box input::placeholder {
+  font-size: 1.2vw;
+  font-style: italic;
+}
+
 .comment {
   color: green
 }

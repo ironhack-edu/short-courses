@@ -3,6 +3,8 @@
 const emojiOneInput = document.querySelector("#emoji-one-input");
 const emojiTwoInput = document.querySelector("#emoji-two-input");
 const emojiThreeInput = document.querySelector("#emoji-three-input");
+const varDeclareInput = document.querySelector("#var-declare-input");
+const varAssignInput = document.querySelector("#var-assign-input");
 
 const widthInput = document.querySelector("#style-width-input");
 const heightInput = document.querySelector("#style-height-input");
@@ -19,6 +21,7 @@ const emoji4InputCheck = document.querySelector("#emoji-4-input-check");
 const emoji5InputCheck = document.querySelector("#emoji-5-input-check");
 const emoji6InputCheck = document.querySelector("#emoji-6-input-check");
 const emoji7InputCheck = document.querySelector("#emoji-7-input-check");
+const emoji8InputCheck = document.querySelector("#emoji-8-input-check");
 
 const isEmoji = (str) => {
   console.log(str);
@@ -30,7 +33,17 @@ const isEmoji = (str) => {
   } else {
     return false;
   }
-}
+};
+
+const isVariable = (str) => {
+  const varRegex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+  return varRegex.test(str.trim());
+
+};
+
+const isMatching = (inputA, inputB) => {
+  return inputA.value.length > 0 && inputA.value.trim() === inputB.value.trim();
+};
 
 const successFeedback = [
   'Nice! Very good job!',
@@ -118,6 +131,41 @@ emojiThreeInput.addEventListener("change", () => {
   }
 });
 
+const varDeclareFeedback = createInputFeedback(emoji3InputCheck);
+varDeclareInput.addEventListener("change", () => {
+  if (isVariable(varDeclareInput.value)) {
+    varAssignInput.placeholder = varDeclareInput.value;
+    varDeclareFeedback.succeed();
+  } else {
+    varDeclareFeedback.fail(
+      "Not quite. A variable's name should start with a letter and can only contain letters/numbers."
+    );
+  }
+
+  if (varAssignInput.value === '') {
+    return;
+  }
+
+  if (isMatching(varDeclareInput, varAssignInput)) {
+    varAssignFeedback.succeed();
+  } else {
+    varAssignFeedback.fail(
+      "Remember to change the variable here as well..."
+    );
+  }
+});
+
+const varAssignFeedback = createInputFeedback(emoji4InputCheck);
+varAssignInput.addEventListener("change", () => {
+  if (isMatching(varDeclareInput, varAssignInput)) {
+    varAssignFeedback.succeed();
+  } else {
+    varAssignFeedback.fail(
+      "Not quite. Type the EXACT name of the variable you entered for the 3rd emoji."
+    );
+  }
+});
+
 // ACTIVITY 2
 
 const isPixel = (input) => {
@@ -132,7 +180,7 @@ const isColor = (strColor) => {
   return s.color !== '';
 }
 
-const widthFeedback = createInputFeedback(emoji4InputCheck);
+const widthFeedback = createInputFeedback(emoji5InputCheck);
 widthInput.addEventListener("change", () => {
   if (isPixel(widthInput.value)) {
     widthFeedback.succeed();
@@ -143,7 +191,7 @@ widthInput.addEventListener("change", () => {
   }
 });
 
-const heightFeedback = createInputFeedback(emoji5InputCheck);
+const heightFeedback = createInputFeedback(emoji6InputCheck);
 heightInput.addEventListener("change", () => {
   if (isPixel(heightInput.value)) {
     heightFeedback.succeed();
@@ -154,7 +202,7 @@ heightInput.addEventListener("change", () => {
   }
 });
 
-const bgColorFeedback = createInputFeedback(emoji6InputCheck);
+const bgColorFeedback = createInputFeedback(emoji7InputCheck);
 backgroundColorInput.addEventListener("change", () => {
   if (isColor(backgroundColorInput.value)) {
     bgColorFeedback.succeed();
@@ -183,7 +231,7 @@ circleButtons.forEach((eachCircle) => {
 
 // ACTIVITY 3
 
-const confettiFeedback = createInputFeedback(emoji7InputCheck);
+const confettiFeedback = createInputFeedback(emoji8InputCheck);
 confettiInput.addEventListener("change", () => {
   if (confettiInput.value.trim() === "addConfetti()") {
     confettiFeedback.succeed();
