@@ -18,13 +18,15 @@
   text-decoration: none;
   outline: none;
   color: white;
-  background-color: #2CC5FA;
+  background-color: #2cc5fa;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-#navigation button:hover {background-color: #50aece}
+#navigation button:hover {
+  background-color: #50aece
+}
 
 #instructions span {
   width: 300px;
@@ -36,11 +38,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: lightgray;
+  background-color: #31325f;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow: hidden;
@@ -53,10 +55,10 @@ body {
   flex-direction: column;
   justify-content: start;
   background-color: black;
-  width: 55vw;
-  height: 95vh;
+  width: 63vw;
+  height: 100vh;
   padding: 0px 20px;
-  margin: 20px;
+  margin: 0 1vw 0 0;
   font-size: 1.4vw; /* depends on vw */
   overflow: auto;
 }
@@ -84,7 +86,7 @@ body {
 }
 
 #code-box input {
-  background-color: rgb(33, 30, 30);
+  background-color: #4c4b4b;
   border: none;
   height: 1.6vw; /* depends on vw */
   font-size: 1.4vw; /* depends on vw */
@@ -101,55 +103,55 @@ body {
 }
 
 .comment {
-  color: green
+  color: green;
 }
 
 .white {
-  color: white
+  color: white;
 }
 
 .darkblue {
-  color: rgb(55, 84, 170)
+  color: rgb(55, 84, 170);
 }
 
 .blue {
-  color: #3782CD
+  color: #3782cd;
 }
 
 .lightblue {
-  color: #7CADDE
+  color: #7cadde;
 }
 
 .white {
-  color: white
+  color: white;
 }
 
 .orange {
-  color: orange
+  color: orange;
 }
 
 .lightyellow {
-  color: rgb(251, 253, 193)
+  color: rgb(251, 253, 193);
 }
 
 .yellow {
-  color: yellow
+  color: yellow;
 }
 
 .purple {
-  color: rgb(160, 98, 160)
+  color: rgb(160, 98, 160);
 }
 
 .green {
-  color: rgb(121, 186, 132)
+  color: rgb(121, 186, 132);
 }
 
 .gray {
-  color: rgb(111, 111, 111)
+  color: rgb(111, 111, 111);
 }
 
 .ihblue {
-  color: #2CC5FA;
+  color: #2cc5fa;
 }
 
 .indented {
@@ -181,26 +183,26 @@ body {
 }
 
 .activity-title {
-  color: green;
+  color: #2cc5fa;
   text-align: center;
   margin: 50px 0px;
 }
 
 .activity-title hr {
-  border: 1px solid green;
+  border: 1px solid;
   width: 100%;
 }
 
 /* OUTPUT BOX */
 
 #output-box {
-  height: 95vh;
-  width: 33vw;
+  height: 100vh;
+  width: 36vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2CC5FA;
+  background-color: #2cc5fa;
 }
 
 /* output-content is for canvas purposes */
