@@ -24,7 +24,6 @@ const emoji7InputCheck = document.querySelector("#emoji-7-input-check");
 const emoji8InputCheck = document.querySelector("#emoji-8-input-check");
 
 const isEmoji = (str) => {
-  console.log(str);
   var ranges = [
     "(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])", // U+1F680 to U+1F6FF
   ];
@@ -73,7 +72,7 @@ const rotateRandom = (arr) => {
 const getSuccessFeedback = rotateRandom(successFeedback);
 const getGenericFailFeedback = rotateRandom(failFeedback);
 
-const createInputFeedback = ((element) => {
+const createInputFeedback = (element) => {
   const triesBeforeSpoiler = 1;
   let triesSoFar = 0;
 
@@ -91,7 +90,25 @@ const createInputFeedback = ((element) => {
       element.style.color = "salmon";
     },
   };
-});
+};
+
+const createEmoji3State = () => {
+  let declare = false;
+  let emoji = false;
+  let assign = false;
+
+  return (str, state) => {
+    const states = { declare, emoji, assign };
+    states[str] = state;
+    ({ declare, emoji, assign } = states);
+
+    if (declare && emoji && assign) {
+      circleButtons[2].innerText = emojiThreeInput.value;
+    } else {
+      circleButtons[2].innerText = "";
+    }
+  };
+};
 
 // DOM TO ALTER
 
@@ -123,12 +140,13 @@ emojiTwoInput.addEventListener("change", () => {
 });
 
 const emoji3Feedback = createInputFeedback(emoji3InputCheck);
+const setEmoji3State = createEmoji3State();
 emojiThreeInput.addEventListener("change", () => {
   if (isEmoji(emojiThreeInput.value)) {
-    circleButtons[2].innerText = emojiThreeInput.value;
+    setEmoji3State("emoji", true);
     emoji3Feedback.succeed();
   } else {
-    circleButtons[2].innerText = "";
+    setEmoji3State("emoji", false);
     emoji3Feedback.fail("Not quite. Simply copy & paste an emoji here, like ✨");
   }
 });
@@ -136,13 +154,16 @@ emojiThreeInput.addEventListener("change", () => {
 const varDeclareFeedback = createInputFeedback(emoji3InputCheck);
 varDeclareInput.addEventListener("change", () => {
   if (usedVariables.includes(varDeclareInput.value.trim())) {
+    setEmoji3State("declare", false);
     varDeclareFeedback.fail(
       "Not quite. Choose a variable name that isn't already in use."
     );
   } else if (isVariable(varDeclareInput.value)) {
     varAssignInput.placeholder = varDeclareInput.value;
+    setEmoji3State("declare", true);
     varDeclareFeedback.succeed();
   } else {
+    setEmoji3State("declare", false);
     varDeclareFeedback.fail(
       "Not quite. A variable's name should start with a letter and can only contain letters/numbers."
     );
@@ -153,8 +174,10 @@ varDeclareInput.addEventListener("change", () => {
   }
 
   if (isMatching(varDeclareInput, varAssignInput)) {
+    setEmoji3State("assign", true);
     varAssignFeedback.succeed();
   } else {
+    setEmoji3State("assign", false);
     varAssignFeedback.fail(
       "Remember to change the variable here as well..."
     );
@@ -164,8 +187,10 @@ varDeclareInput.addEventListener("change", () => {
 const varAssignFeedback = createInputFeedback(emoji4InputCheck);
 varAssignInput.addEventListener("change", () => {
   if (isMatching(varDeclareInput, varAssignInput)) {
+    setEmoji3State("assign", true);
     varAssignFeedback.succeed();
   } else {
+    setEmoji3State("assign", false);
     varAssignFeedback.fail(
       "Not quite. Type the EXACT name of the variable you entered for the 3rd emoji."
     );
