@@ -254,9 +254,9 @@ circleButtons.forEach((eachCircle) => {
 
 circleButtons.forEach((eachCircle) => {
   eachCircle.addEventListener("mouseleave", () => {
-    eachCircle.style.width = "60px";
-    eachCircle.style.height = "60px";
-    eachCircle.style.backgroundColor = "white";
+    eachCircle.style.width = "";
+    eachCircle.style.height = "";
+    eachCircle.style.backgroundColor = "";
   });
 });
 
@@ -282,14 +282,5 @@ circleButtons.forEach((eachCircle) => {
       .filter((e) => e !== " ")
       .join("");
     cleanconfettiInput === "addConfetti()" && jsConfetti.addConfetti();
-  });
-});
-
-// REMOVED ACTIVITY (functionality on page still works)
-
-circleButtons.forEach((eachCircle, index) => {
-  eachCircle.addEventListener("click", () => {
-    let newValue = Number(counters[index].innerText) + 1;
-    counters[index].innerText = newValue;
   });
 });

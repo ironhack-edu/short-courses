@@ -206,7 +206,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2cc5fa;
+  background-color: #2dc5fa;
 }
 
 /* output-content is for canvas purposes */
@@ -220,60 +220,74 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#header-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10vh;
-}
-
-#logo-container {
-  background-color: white;
-  width: 80px;
-  height: 80px;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-}
-
-#logo-container img{
-  width: 50px;
-  height: 55px;
-}
-
-#title-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  font-family: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+  letter-spacing: -0.5px;
 }
 
 #post {
-  width: 83%;
-  font-size: 1em;
-  height: 200px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  background-color: white;
-  opacity: 0.9;
+  font-size: 1.25em;
+  height: 46vh;
+  margin-bottom: 3vw;
+  position: relative;
+  width: 26vw;
+}
+
+#post .window-controls,
+#post .window-controls::before,
+#post .window-controls::after {
+  background-color: black;
+  border-radius: 1vw;
+  display: block;
+  height: 1vw;
+  position: absolute;
+  width: 1vw;
+}
+#post .window-controls {
+  left: 1vw;
+  position: absolute;
+  top: 1vw;
+}
+
+#post .window-controls::before,
+#post .window-controls::after {
+  content: "";
+  top: 0;
+  left: 1.5vw;
+}
+
+#post .window-controls::after {
+  left: 3vw;
+}
+
+#post h1 {
+  font-size: 1.5em;
+}
+
+#post .echo-box {
+  align-items: center;
+  background-color: #eef9fe;
+  border: 2px solid black;
+  box-sizing: border-box;
+  box-shadow: 1vw 1vw #a2e4fc,
+              1vw 1vw 0 2px black;
+  display: flex;
+  height: 96%;
+  padding: 2vw;
+  width: 25vw;
 }
 
 #reactions {
   display: flex;
   flex-direction: row;
-  height: 10vh;
+  justify-content: space-between;
+  padding-right: 1vw;
+  width: 25vw;
 }
 
 .circle-btn {
-  border: none;
   font-size: 2rem;
-  margin: 10px;
-  width: 60px;
-  height: 60px;
+  width: 6vw;
+  height: 6vw;
   border-radius: 1000px;
   display: flex;
   justify-content: center;
