@@ -41,6 +41,8 @@ const isVariable = (str) => {
 
 };
 
+const usedVariables = [ "circleButtons", "emojiOne", "emojiTwo", "jsConfetti" ];
+
 const isMatching = (inputA, inputB) => {
   return inputA.value.length > 0 && inputA.value.trim() === inputB.value.trim();
 };
@@ -133,7 +135,11 @@ emojiThreeInput.addEventListener("change", () => {
 
 const varDeclareFeedback = createInputFeedback(emoji3InputCheck);
 varDeclareInput.addEventListener("change", () => {
-  if (isVariable(varDeclareInput.value)) {
+  if (usedVariables.includes(varDeclareInput.value.trim())) {
+    varDeclareFeedback.fail(
+      "Not quite. Choose a variable name that isn't already in use."
+    );
+  } else if (isVariable(varDeclareInput.value)) {
     varAssignInput.placeholder = varDeclareInput.value;
     varDeclareFeedback.succeed();
   } else {
