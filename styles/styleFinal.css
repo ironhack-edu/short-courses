@@ -299,23 +299,7 @@ body {
 
 .circle-btn:active {
   transform: translateY(4px);
-} 
-
-.counter {
-  position: relative;
-  left: -20px;
-  font-size: 13px;
-  font-weight: 700;
-  background-color: white;
-  height: 18px;
-  min-width: 18px;
-  padding: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100px;
 }
-
 
 /* canvas for confetti package */
 .canvas-container {
@@ -327,4 +311,3 @@ body {
   height: 100%;
   background: transparent;
 }
-
