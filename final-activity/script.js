@@ -1,3 +1,6 @@
+// MESSAGE COMMUNICATION
+const MESSAGE_SOURCE = 'IRON_LESSON_ACTIVITY'
+
 // USER INPUTS
 
 const emojiOneInput = document.querySelector("#emoji-one-input");
@@ -119,50 +122,87 @@ const counters = document.querySelectorAll(".counter");
 
 const emoji1Feedback = createInputFeedback(emoji1InputCheck);
 emojiOneInput.addEventListener("change", () => {
+  let valid = false;
   if (isEmoji(emojiOneInput.value)) {
+    valid = true;
     circleButtons[0].innerText = emojiOneInput.value;
     emoji1Feedback.succeed();
   } else {
+    valid = false;
     circleButtons[0].innerText = "";
     emoji1Feedback.fail("Not quite. Simply copy & paste an emoji here, like ❤️");
   }
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 1, section: 1, valid },
+    },
+    '*',
+  );
 });
 
 const emoji2Feedback = createInputFeedback(emoji2InputCheck);
 emojiTwoInput.addEventListener("change", () => {
+  let valid = false;
   if (isEmoji(emojiTwoInput.value)) {
+    valid = true;
     circleButtons[1].innerText = emojiTwoInput.value;
     emoji2Feedback.succeed();
   } else {
+    valid = false;
     circleButtons[1].innerText = "";
     emoji2Feedback.fail("Not quite. Simply copy & paste an emoji here, like 🔥");
   }
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 1, section: 2, valid },
+    },
+    '*',
+  );
 });
 
 const emoji3Feedback = createInputFeedback(emoji3InputCheck);
 const setEmoji3State = createEmoji3State();
 emojiThreeInput.addEventListener("change", () => {
+  let valid = false;
   if (isEmoji(emojiThreeInput.value)) {
+    valid = true;
     setEmoji3State("emoji", true);
     emoji3Feedback.succeed();
   } else {
+    valid = false;
     setEmoji3State("emoji", false);
     emoji3Feedback.fail("Not quite. Simply copy & paste an emoji here, like ✨");
   }
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 1, section: 3, valid },
+    },
+    '*',
+  );
 });
 
 const varDeclareFeedback = createInputFeedback(emoji3InputCheck);
 varDeclareInput.addEventListener("change", () => {
+  let valid = false;
   if (usedVariables.includes(varDeclareInput.value.trim())) {
+    valid = false;
     setEmoji3State("declare", false);
     varDeclareFeedback.fail(
       "Not quite. Choose a variable name that isn't already in use."
     );
   } else if (isVariable(varDeclareInput.value)) {
+    valid = true;
     varAssignInput.placeholder = varDeclareInput.value;
     setEmoji3State("declare", true);
     varDeclareFeedback.succeed();
   } else {
+    valid = false;
     setEmoji3State("declare", false);
     varDeclareFeedback.fail(
       "Not quite. A variable's name should start with a letter and can only contain letters/numbers."
@@ -170,31 +210,55 @@ varDeclareInput.addEventListener("change", () => {
   }
 
   if (varAssignInput.value === '') {
+    valid = false;
     return;
   }
 
   if (isMatching(varDeclareInput, varAssignInput)) {
+    valid = true;
     setEmoji3State("assign", true);
     varAssignFeedback.succeed();
   } else {
+    valid = false;
     setEmoji3State("assign", false);
     varAssignFeedback.fail(
       "Remember to change the variable here as well..."
     );
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 1, section: 3, valid },
+    },
+    '*',
+  );
 });
 
 const varAssignFeedback = createInputFeedback(emoji4InputCheck);
 varAssignInput.addEventListener("change", () => {
+  let valid = false;
   if (isMatching(varDeclareInput, varAssignInput)) {
+    valid = true;
     setEmoji3State("assign", true);
     varAssignFeedback.succeed();
   } else {
+    valid = false;
     setEmoji3State("assign", false);
     varAssignFeedback.fail(
       "Not quite. Type the EXACT name of the variable you entered for the 3rd emoji."
     );
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 1, section: 4, valid },
+    },
+    '*',
+  );
 });
 
 // ACTIVITY 2
@@ -213,35 +277,71 @@ const isColor = (strColor) => {
 
 const widthFeedback = createInputFeedback(emoji5InputCheck);
 widthInput.addEventListener("change", () => {
+  let valid = false;
   if (isPixel(widthInput.value)) {
+    valid = true;
     widthFeedback.succeed();
   } else {
+    valid: false;
     widthFeedback.fail(
       "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces."
     );
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 2, section: 1, valid },
+    },
+    '*',
+  );
 });
 
 const heightFeedback = createInputFeedback(emoji6InputCheck);
 heightInput.addEventListener("change", () => {
+  let valid = false;
   if (isPixel(heightInput.value)) {
+    valid = true;
     heightFeedback.succeed();
   } else {
+    valid = false;
     heightFeedback.fail(
       "Not quite. Simply add a value in pixels here, like 80px, don't forget to add the 'px' at the end and no spaces."
     );
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 2, section: 2, valid },
+    },
+    '*',
+  );
 });
 
 const bgColorFeedback = createInputFeedback(emoji7InputCheck);
 backgroundColorInput.addEventListener("change", () => {
+  let valid = false;
   if (isColor(backgroundColorInput.value)) {
+    valid = true;
     bgColorFeedback.succeed();
   } else {
+    valid = false;
     bgColorFeedback.fail(
       "Not quite. Simply add a color value, like 'red' or 'blue'."
     );
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 2, section: 3, valid },
+    },
+    '*',
+  );
 });
 
 circleButtons.forEach((eachCircle) => {
@@ -264,11 +364,23 @@ circleButtons.forEach((eachCircle) => {
 
 const confettiFeedback = createInputFeedback(emoji8InputCheck);
 confettiInput.addEventListener("change", () => {
+  let valid = false;
   if (confettiInput.value.trim() === "addConfetti()") {
+    valid = true;
     confettiFeedback.succeed();
   } else {
+    valid = true;
     confettiFeedback.fail("Not quite. Type 'addConfetti()' here.");
   }
+
+  window.top.postMessage(
+    {
+      source: MESSAGE_SOURCE,
+      action: 'SECTION_VALIDATION',
+      payload: { activity: 3, section: 1, valid },
+    },
+    '*',
+  );
 });
 
 const canvas = document.querySelector("#custom_canvas");
