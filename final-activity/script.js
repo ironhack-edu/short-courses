@@ -91,9 +91,9 @@ const createInputFeedback = (element) => {
       element.innerText = getSuccessFeedback();
       element.style.color = "lightgreen";
     },
-    fail: (errorMsg) => {
+    fail: (errorMsg, { force = false } = {}) => {
       triesSoFar += 1;
-      element.innerText = triesSoFar > triesBeforeSpoiler
+      element.innerText = (triesSoFar > triesBeforeSpoiler || force)
         ? errorMsg
         : getGenericFailFeedback();
       element.style.color = "salmon";
@@ -106,15 +106,27 @@ const createEmoji3State = () => {
   let emoji = false;
   let assign = false;
 
-  return (str, state) => {
-    const states = { declare, emoji, assign };
-    states[str] = state;
-    ({ declare, emoji, assign } = states);
+  return {
+    succeed: (str) => {
+      const states = { declare, emoji, assign };
+      states[str] = true;
+      ({ declare, emoji, assign } = states);
 
-    if (declare && emoji && assign) {
-      circleButtons[2].innerText = emojiThreeInput.value;
-    } else {
-      circleButtons[2].innerText = "";
+      if (declare && emoji && assign) {
+        circleButtons[2].innerText = emojiThreeInput.value;
+      }
+    },
+    fail: (str) => {
+      const states = { declare, emoji, assign };
+      states[str] = false;
+      ({ declare, emoji, assign } = states);
+
+      if (!declare || !emoji || !assign) {
+        circleButtons[2].innerText = "";
+      }
+    },
+    isDeclared: () => {
+      return declare && emoji;
     }
   };
 };
@@ -179,18 +191,26 @@ emojiTwoInput.addEventListener("change", () => {
 });
 
 const emoji3Feedback = createInputFeedback(emoji3InputCheck);
-const setEmoji3State = createEmoji3State();
+const emoji3State = createEmoji3State();
 emojiThreeInput.addEventListener("change", () => {
   const emojiString = emojiThreeInput.value;
   let valid = false;
 
   if (isEmoji(emojiString) && isEmojiLength(1, emojiString)) {
     valid = true;
-    setEmoji3State("emoji", true);
-    emoji3Feedback.succeed();
+    emoji3State.succeed("emoji");
+
+    if (emoji3State.isDeclared()) {
+      emoji3Feedback.succeed();
+    } else {
+      emoji3Feedback.fail(
+        "Fill out the other blank space...",
+        { force: true }
+      );
+    }
   } else {
     valid = false;
-    setEmoji3State("emoji", false);
+    emoji3State.fail("emoji");
     emoji3Feedback.fail(
       "Not quite. Simply copy & paste a single emoji here, like ✨."
     );
@@ -210,18 +230,26 @@ varDeclareInput.addEventListener("change", () => {
   let valid = false;
   if (usedVariables.includes(varDeclareInput.value.trim())) {
     valid = false;
-    setEmoji3State("declare", false);
+    emoji3State.fail("declare");
     varDeclareFeedback.fail(
       "Not quite. Choose a variable name that isn't already in use."
     );
   } else if (isVariable(varDeclareInput.value)) {
     valid = true;
     varAssignInput.placeholder = varDeclareInput.value;
-    setEmoji3State("declare", true);
-    varDeclareFeedback.succeed();
+    emoji3State.succeed("declare");
+
+    if (emoji3State.isDeclared()) {
+      varDeclareFeedback.succeed();
+    } else {
+      varDeclareFeedback.fail(
+        "Fill out the other blank space...",
+        { force: true }
+      );
+    }
   } else {
     valid = false;
-    setEmoji3State("declare", false);
+    emoji3State.fail("declare");
     varDeclareFeedback.fail(
       "Not quite. A variable's name should start with a letter and can only contain letters/numbers."
     );
@@ -234,11 +262,11 @@ varDeclareInput.addEventListener("change", () => {
 
   if (isMatching(varDeclareInput, varAssignInput)) {
     valid = true;
-    setEmoji3State("assign", true);
+    emoji3State.succeed("assign");
     varAssignFeedback.succeed();
   } else {
     valid = false;
-    setEmoji3State("assign", false);
+    emoji3State.fail("assign");
     varAssignFeedback.fail(
       "Remember to change the variable here as well..."
     );
@@ -259,11 +287,11 @@ varAssignInput.addEventListener("change", () => {
   let valid = false;
   if (isMatching(varDeclareInput, varAssignInput)) {
     valid = true;
-    setEmoji3State("assign", true);
+    emoji3State.succeed("assign");
     varAssignFeedback.succeed();
   } else {
     valid = false;
-    setEmoji3State("assign", false);
+    emoji3State.fail("assign");
     varAssignFeedback.fail(
       "Not quite. Type the EXACT name of the variable you entered for the 3rd emoji."
     );
