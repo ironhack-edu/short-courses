@@ -37,6 +37,12 @@ const isEmoji = (str) => {
   }
 };
 
+const isEmojiLength = (length, str) => {
+  // emoji have variable string length but this works
+  const charArray = [ ...str ];
+  return charArray.length === length;
+};
+
 const isVariable = (str) => {
   const varRegex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
   return varRegex.test(str.trim());
@@ -122,15 +128,19 @@ const counters = document.querySelectorAll(".counter");
 
 const emoji1Feedback = createInputFeedback(emoji1InputCheck);
 emojiOneInput.addEventListener("change", () => {
+  const emojiString = emojiOneInput.value;
   let valid = false;
-  if (isEmoji(emojiOneInput.value)) {
+
+  if (isEmoji(emojiString) && isEmojiLength(1, emojiString)) {
     valid = true;
-    circleButtons[0].innerText = emojiOneInput.value;
+    circleButtons[0].innerText = emojiString;
     emoji1Feedback.succeed();
   } else {
     valid = false;
     circleButtons[0].innerText = "";
-    emoji1Feedback.fail("Not quite. Simply copy & paste an emoji here, like ❤️");
+    emoji1Feedback.fail(
+      "Not quite. Simply copy & paste a single emoji here, like ❤️."
+    );
   }
   window.top.postMessage(
     {
@@ -144,15 +154,19 @@ emojiOneInput.addEventListener("change", () => {
 
 const emoji2Feedback = createInputFeedback(emoji2InputCheck);
 emojiTwoInput.addEventListener("change", () => {
+  const emojiString = emojiTwoInput.value;
   let valid = false;
-  if (isEmoji(emojiTwoInput.value)) {
+
+  if (isEmoji(emojiString) && isEmojiLength(1, emojiString)) {
     valid = true;
-    circleButtons[1].innerText = emojiTwoInput.value;
+    circleButtons[1].innerText = emojiString;
     emoji2Feedback.succeed();
   } else {
     valid = false;
     circleButtons[1].innerText = "";
-    emoji2Feedback.fail("Not quite. Simply copy & paste an emoji here, like 🔥");
+    emoji2Feedback.fail(
+      "Not quite. Simply copy & paste a single emoji here, like 🔥."
+    );
   }
   window.top.postMessage(
     {
@@ -167,15 +181,19 @@ emojiTwoInput.addEventListener("change", () => {
 const emoji3Feedback = createInputFeedback(emoji3InputCheck);
 const setEmoji3State = createEmoji3State();
 emojiThreeInput.addEventListener("change", () => {
+  const emojiString = emojiThreeInput.value;
   let valid = false;
-  if (isEmoji(emojiThreeInput.value)) {
+
+  if (isEmoji(emojiString) && isEmojiLength(1, emojiString)) {
     valid = true;
     setEmoji3State("emoji", true);
     emoji3Feedback.succeed();
   } else {
     valid = false;
     setEmoji3State("emoji", false);
-    emoji3Feedback.fail("Not quite. Simply copy & paste an emoji here, like ✨");
+    emoji3Feedback.fail(
+      "Not quite. Simply copy & paste a single emoji here, like ✨."
+    );
   }
   window.top.postMessage(
     {
