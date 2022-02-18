@@ -222,6 +222,8 @@ body {
 #post {
   height: 46vh;
   margin-bottom: 3vw;
+  max-height: 32.5vw; /* 1.25 * 26vw */
+  min-height: 13vw;
   position: relative;
   width: 26vw;
 }
