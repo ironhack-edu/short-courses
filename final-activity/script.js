@@ -396,9 +396,7 @@ circleButtons.forEach((eachCircle) => {
     eachCircle.style.height = heightInput.value;
     eachCircle.style.backgroundColor = backgroundColorInput.value;
   });
-});
 
-circleButtons.forEach((eachCircle) => {
   eachCircle.addEventListener("mouseleave", () => {
     eachCircle.style.width = "";
     eachCircle.style.height = "";
