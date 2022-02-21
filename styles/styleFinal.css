@@ -168,19 +168,19 @@ body {
 }
 
 .emoji-input {
-  width: 30px;
-} 
+  width: 2vw;
+}
 
 .style-input {
-  width: 100px;
+  width: 7vw;
 }
 
 .variable-input {
-  width: 110px;
+  width: 8vw;
 }
 
-#confetti-input {
-  width: 150px;
+.confetti-input {
+  width: 10vw;
 }
 
 .activity-title {
