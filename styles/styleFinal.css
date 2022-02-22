@@ -59,7 +59,7 @@ body {
   height: 100vh;
   padding: 0px 20px;
   margin: 0 1vw 0 0;
-  font-size: 1.4vw; /* depends on vw */
+  font-size: 1.4vw;
   overflow: auto;
   box-sizing: border-box;
 }
@@ -73,17 +73,14 @@ body {
   margin: -0.13vw;
 }
 
-#code-box .separated-right {
-  margin-right: 8px;
-}
-
-#code-box .separated-left {
-  margin-left: 8px;
-}
-
+#code-box .separated-right,
 #code-box .separated-both {
-  margin-right: 8px;
-  margin-left: 8px;
+  margin-right: 0.55vw;
+}
+
+#code-box .separated-left,
+#code-box .separated-both {
+  margin-left: 0.55vw;
 }
 
 #code-box input {
@@ -156,15 +153,15 @@ body {
 }
 
 .indented {
-  margin-left: 20px;
+  margin-left: 2vw;
 }
 
 .double-indented {
-  margin-left: 40px;
+  margin-left: 4vw;
 }
 
 .triple-indented {
-  margin-left: 60px;
+  margin-left: 6vw;
 }
 
 .emoji-input {
@@ -185,8 +182,8 @@ body {
 
 .activity-title {
   color: #2cc5fa;
+  margin: 3.75vw 0;
   text-align: center;
-  margin: 50px 0px;
 }
 
 .activity-title hr {
