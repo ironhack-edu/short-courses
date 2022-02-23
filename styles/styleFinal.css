@@ -108,6 +108,8 @@ body {
 
 .comment {
   color: #2cc5fa;
+  padding-left: 4vw;
+  text-indent: -4vw;
 }
 
 .white {
