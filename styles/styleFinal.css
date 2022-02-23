@@ -57,11 +57,17 @@ body {
   background-color: black;
   width: 63vw;
   height: 100vh;
-  padding: 0px 20px;
-  margin: 0 1vw 0 0;
+  padding: 0px 1.5vw;
+  margin-right: 1vw;
   font-size: 1.4vw;
   overflow: auto;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  #code-box {
+    font-size: 1.8vw;
+  }
 }
 
 #code-box p {
