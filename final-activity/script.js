@@ -134,7 +134,6 @@ const createEmoji3State = () => {
 // DOM TO ALTER
 
 const circleButtons = document.querySelectorAll(".circle-btn");
-const counters = document.querySelectorAll(".counter");
 
 // ACTIVITY 1
 
